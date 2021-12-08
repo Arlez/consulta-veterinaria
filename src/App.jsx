@@ -10,9 +10,10 @@ function App() {
 
   useEffect( () => {
     const obetenerLS = () => {
-      const pacientesLS = localStorage.getItem('pacientes');
-      console.log(pacientesLS);
+      const pacientesLS = JSON.parse(localStorage.getItem('pacientes')) ?? [];
+      setPacientes(pacientesLS);
     }
+    obetenerLS();
   }, [])
 
   useEffect( () => {
